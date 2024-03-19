@@ -108,27 +108,30 @@ const Attendance = () => {
   }
 
 
-  const download = async()=>{
+  const download = async () => {
+  console.log(startformattedDate, endformattedDate);
 
-    console.log(startformattedDate, endformattedDate)
+  try {
+    const response = await axios.post("https://attendance-portal-5xn3.onrender.com/api/v1/attendance/getattendance", { startformattedDate, endformattedDate });
 
-
-    try {
-        const response = await axios.post("https://attendance-portal-5xn3.onrender.com/api/v1/attendance/getattendance", { startformattedDate, endformattedDate });
-        console.log(response.data)
-        // Check if the response contains the CSV data
-        if (response.data && typeof response.data === 'string') {
-          // Display the CSV data in Notepad
-          window.open('data:text/csv;charset=utf-8,' + encodeURIComponent(response.data));
-        } else {
-          console.error('Invalid response from server');
-        }
-      } catch (error) {
-        console.error('Error downloading attendance:', error);
-        // Handle error
+    if (response.status === 200 && response.data) {
+      // Check if the response contains the CSV data
+      if (typeof response.data === 'string') {
+        // Display the CSV data in Notepad
+        window.open('data:text/csv;charset=utf-8,' + encodeURIComponent(response.data));
+      } else if (response.data === 'No data available') {
+        console.log('No attendance data available.');
+      } else {
+        console.error('Invalid response from server:', response);
       }
-
+    } else {
+      console.error('Invalid response from server:', response);
+    }
+  } catch (error) {
+    console.error('Error downloading attendance:', error);
+    // Handle specific error cases if needed
   }
+};
 
 
 
