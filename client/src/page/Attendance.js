@@ -120,12 +120,12 @@ const Attendance = () => {
         // Display the CSV data in Notepad
         window.open('data:text/csv;charset=utf-8,' + encodeURIComponent(response.data));
       } else if (response.data === 'No data available') {
-        message.error("student not added ");
+        message.error("no data to show ");
       } else {
-        console.error('Invalid response from server:', response);
+        cmessage.error("no data to show");
       }
     } else {
-      console.error('Invalid response from server:', response);
+      message.error("no data to show");
     }
   } catch (error) {
     console.error('Error downloading attendance:', error);
