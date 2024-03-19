@@ -1,4 +1,4 @@
-import bcrypt from "bcrypt";
+import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import Admin from "../models/userSchema.js";
 import Student from "../models/Student.js"
