@@ -115,7 +115,7 @@ const Attendance = () => {
 
     try {
         const response = await axios.post("https://attendance-portal-5xn3.onrender.com/api/v1/attendance/getattendance", { startformattedDate, endformattedDate });
-    
+        console.log(response.data)
         // Check if the response contains the CSV data
         if (response.data && typeof response.data === 'string') {
           // Display the CSV data in Notepad
