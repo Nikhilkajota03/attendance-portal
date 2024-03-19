@@ -17,7 +17,7 @@ const Signup = () => {
 
     try {
       const add = await axios.post(
-        "http://localhost:8000/api/v1/user/register",
+        "https://attendance-portal-5xn3.onrender.com/api/v1/user/register",
         { name, email, password }
       );
 

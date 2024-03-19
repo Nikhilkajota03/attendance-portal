@@ -3,12 +3,12 @@ import axios from "axios";
 import { message } from "antd";
 import Navbar from "../page/Navbar.js";
 
-// http://localhost:8000//api/v1/user/login
-// http://localhost:8000//api/v1/user/register
-// http://localhost:8000//api/v1/user/addStudent
+// https://attendance-portal-5xn3.onrender.com//api/v1/user/login
+// https://attendance-portal-5xn3.onrender.com//api/v1/user/register
+// https://attendance-portal-5xn3.onrender.com//api/v1/user/addStudent
 
-// http://localhost:8000//api/v1/attendance/postattendance
-// http://localhost:8000//api/v1/attendance/getattendance/:date
+// https://attendance-portal-5xn3.onrender.com//api/v1/attendance/postattendance
+// https://attendance-portal-5xn3.onrender.com//api/v1/attendance/getattendance/:date
 
 const Attendance = () => {
   const [rollNo, setRoleNumber] = useState("");
@@ -62,7 +62,7 @@ const Attendance = () => {
 
     try {
       const add = await axios.post(
-        "http://localhost:8000/api/v1/user/addStudent",
+        "https://attendance-portal-5xn3.onrender.com/api/v1/user/addStudent",
         { name, rollNo }
       );
 
@@ -90,7 +90,7 @@ const Attendance = () => {
 
     try {
 
-       const addAttendance = await axios.post("http://localhost:8000/api/v1/attendance/postattendance", {data,date })
+       const addAttendance = await axios.post("https://attendance-portal-5xn3.onrender.com/api/v1/attendance/postattendance", {data,date })
 
        if (addAttendance) {
         message.success("Attendance marked ");
@@ -114,7 +114,7 @@ const Attendance = () => {
 
 
     try {
-        const response = await axios.post("http://localhost:8000/api/v1/attendance/getattendance", { startformattedDate, endformattedDate });
+        const response = await axios.post("https://attendance-portal-5xn3.onrender.com/api/v1/attendance/getattendance", { startformattedDate, endformattedDate });
     
         // Check if the response contains the CSV data
         if (response.data && typeof response.data === 'string') {
@@ -136,7 +136,7 @@ const Attendance = () => {
   useEffect(() => {
     const getStudent = async () => {
       const getstudents = await axios.get(
-        "http://localhost:8000/api/v1/user/getStudent",
+        "https://attendance-portal-5xn3.onrender.com/api/v1/user/getStudent",
       );
   
       setStudents(getstudents.data);
