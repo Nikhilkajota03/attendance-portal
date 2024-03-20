@@ -2,7 +2,7 @@
 
 Hey there, everyone!
 
-It's me, Gc, 
+It's me, Nikhil, 
 
 I wanted to share that I've created an attendance management website using the MERN stack. It's a handy tool that allows you to download attendance records as CSV files. You can choose the date and get a list of students who were present or absent on that day.
 
